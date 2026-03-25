@@ -151,7 +151,11 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie08_UnikalneMiastaStudentow()
     {
-        throw Niezaimplementowano(nameof(Zadanie08_UnikalneMiastaStudentow));
+        var query = DaneUczelni.Studenci
+            .Distinct()
+            .OrderBy(s => s.Miasto)
+            .Select(s => $"{s.Miasto}");
+        return query;
     }
 
     /// <summary>
