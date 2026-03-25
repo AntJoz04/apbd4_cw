@@ -52,7 +52,11 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie03_StudenciPosortowani()
     {
-        throw Niezaimplementowano(nameof(Zadanie03_StudenciPosortowani));
+        var query = DaneUczelni.Studenci
+            .OrderBy(s => s.Nazwisko)
+            .ThenBy(s => s.Imie)
+            .Select(s => $"{s.Id},{s.Imie},{s.Nazwisko}");
+        return query;
     }
 
     /// <summary>
